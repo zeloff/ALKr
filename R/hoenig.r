@@ -125,8 +125,6 @@ hoenig <- function(Ak, fik, fiz, threshold = 1, maxiter = 2000,
     new("ALKr",
         alk = calc_ALK(x),
         N = x,
-        age_classes = age_classes,
-        length_classes = length_classes,
         method = "Hoenig et al.",
         parameters = list(
           ConvergenceThreshold = threshold,

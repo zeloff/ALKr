@@ -40,8 +40,6 @@ classic_ALK <- function(x, fi = rowSums(x), age_classes = colnames(x),
   new("ALKr",
       alk = calc_ALK(x),
       N = x * fi,
-      age_classes = age_classes,
-      length_classes = length_classes,
       method = "Classic ALK",
       parameters = params
       )

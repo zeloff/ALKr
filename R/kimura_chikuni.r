@@ -19,8 +19,6 @@ kimura_chikuni <- function(x, fi1, fi2, threshold = 0.0001, maxiter = 2000,
   
   new("ALKr", alk = calc_ALK(nij),
       N = nij,
-      age_classes = age_classes,
-      length_classes = length_classes,
       method = "Kimura & Chikuni",
       parameters = list(
         ConvergenceThreshold = threshold,

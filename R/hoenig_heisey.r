@@ -24,8 +24,6 @@ hoenig_heisey <- function(x, fi1, fi2, threshold = 0.0001, maxiter = 2000,
   
   new("ALKr", alk = calc_ALK(nij2),
       N = nij2,
-      age_classes = age_classes,
-      length_classes = length_classes,
       method = "Hoenig & Heisey",
       parameters = list(
         ConvergenceThreshold = threshold,

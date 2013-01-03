@@ -16,11 +16,9 @@ setClass("ALKr",
 )
 
 setMethod("initialize", "ALKr",
-  function(.Object, alk, N, age_classes, length_classes, method, parameters) {
+  function(.Object, alk, N, method, parameters) {
     .Object@alk <- alk
     .Object@N <- N
-    colnames(.Object@alk) <- age_classes
-    rownames(.Object@alk) <- length_classes
     .Object@method <- method
     .Object@parameters <- parameters
     .Object
