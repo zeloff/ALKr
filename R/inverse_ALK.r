@@ -127,8 +127,6 @@ inverse_ALK <- function(x, fi1, fi2,
   
   new("ALKr", alk = calc_ALK(nij2),
       N = nij2,
-      age_classes = age_classes,
-      length_classes = length_classes,
       method = "Classic Inverse ALK",
       parameters = list())
 }
