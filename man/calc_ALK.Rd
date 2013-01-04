@@ -26,6 +26,7 @@ calc_ALK(hom$otoliths[[1]])
   Fridriksson, A (1934). On the calculation of
   age-distribution within a stock of cod by means of
   relatively few age determinations as a key to
-  measurements on a large scale. Rapp. P.-V. CIEM, 86, 1-5.
+  measurements on a large scale. \emph{Rapp. P.-V. CIEM},
+  \strong{86}, 1-5.
 }
 

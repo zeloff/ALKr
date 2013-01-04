@@ -2,12 +2,18 @@
 \alias{classic_ALK}
 \title{Classic Age-Length Key}
 \usage{
-  classic_ALK(x, age_classes = colnames(x),
+  classic_ALK(x, fi = rowSums(x),
+    age_classes = colnames(x),
     length_classes = rownames(x))
 }
 \arguments{
   \item{x}{A \eqn{i \times j} matrix with the count of
   individuals of age \eqn{i} and length \eqn{j}.}
+
+  \item{fi}{A vector of length \code{i} where \code{fi[i]}
+  is the number of fish in the length-class \code{i} on the
+  population from which \code{x} was sampled. Defaults to
+  the number of samples per length class, which will}
 
   \item{age_classes}{A vector with the name of each age
   class. Defaults to the column names of \code{x}.}
@@ -29,12 +35,13 @@
 }
 \examples{
 data(hom)
-classic_ALK(hom$otoliths[[1]])
+classic_ALK(hom$otoliths[[1]], fi = hom$F1992)
 }
 \references{
   Fridriksson, A. (1934). On the calculation of
   age-distribution within a stock of cod by means of
   relatively few age determinations as a key to
-  measurements on a large scale. Rapp. P.-V. CIEM, 86, 1-5.
+  measurements on a large scale. \emph{Rapp. P.-V. CIEM},
+  \strong{86}, 1-5.
 }
 

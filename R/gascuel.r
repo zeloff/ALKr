@@ -1,4 +1,5 @@
 #' @rdname inverse_ALK
+#' @useDynLib ALKr
 #' @export
 gascuel <- function(x, fi1, fi2, initial_values,
                     threshold = 0.0001, maxiter = 2000,

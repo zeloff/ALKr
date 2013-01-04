@@ -30,16 +30,16 @@ calc_invALK(hom$otoliths[[1]], hom$F1992)
 \references{
   Bartoo, N.W., Parker, K.R. (1983). Stochastic
   age-frequency estimation using the von Bertalanffy growth
-  equation. Fishery Bulletin, 81(1), 91-96
+  equation. \emph{Fishery Bulletin}, \strong{81}/1, 91-96
 
   Clark, W.G. (1981). Restricted Least-Squares Estimates of
-  Age Composition from Length Composition. Canadian Journal
-  of Fisheries and Aquatic Sciences, 38(3), 297-307. DOI:
-  10.1139/f81-041
+  Age Composition from Length Composition. \emph{Canadian
+  Journal of Fisheries and Aquatic Sciences},
+  \strong{38}/3, 297-307. DOI: \code{10.1139/f81-041}
 
   Hilborn, R., Walters, C.J. (1992). Quantitative fisheries
   stock assessment: Choice, dynamics and uncertainty.
-  Reviews in Fish Biology and Fisheries, 2(2), 177-178.
-  DOI: 10.1007/BF00042883
+  \emph{Reviews in Fish Biology and Fisheries},
+  \strong{2}/2, 177-178. DOI: \code{10.1007/BF00042883}
 }
 
