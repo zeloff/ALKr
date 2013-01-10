@@ -35,3 +35,17 @@ BEGIN_RCPP
     return Rcpp::wrap(__result);
 END_RCPP
 }
+// hoenigC
+List hoenigC(List AAk, List FFik, List FFiz, int threshold, int maxiter);
+RcppExport SEXP ALKr_hoenigC(SEXP AAkSEXP, SEXP FFikSEXP, SEXP FFizSEXP, SEXP thresholdSEXP, SEXP maxiterSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope __rngScope;
+    List AAk = Rcpp::as<List >(AAkSEXP);
+    List FFik = Rcpp::as<List >(FFikSEXP);
+    List FFiz = Rcpp::as<List >(FFizSEXP);
+    int threshold = Rcpp::as<int >(thresholdSEXP);
+    int maxiter = Rcpp::as<int >(maxiterSEXP);
+    List __result = hoenigC(AAk, FFik, FFiz, threshold, maxiter);
+    return Rcpp::wrap(__result);
+END_RCPP
+}

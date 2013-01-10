@@ -76,52 +76,14 @@ hoenig <- function(Ak, fik, fiz, threshold = 1, maxiter = 2000,
                    age_classes = colnames(Ak[[1]]),
                    length_classes = rownames(Ak[[1]])) {
   
-  do.pj <- function(x) lapply(x, function(x) colSums(x) / sum(x, na.rm = TRUE))
+  fromC <- hoenigC(Ak, fik, fiz, threshold, maxiter)
   
-  do.Nk <- function(qij, aij, fi, pj) { 
-    rsaij <- rowSums(aij)
-    Q_pj <- t(t(Q_) * pj)
-    qij * rsaij + Q_pj * (fi - rsaij) / rowSums(Q_pj)
-  }
+  Nz <- fromC[["Nz"]]
+  iter <- fromC[["iter"]]
   
-  do.Nz <- function(fi, pj) {
-    Q_pj <- t(t(Q_) * pj)
-    Q_pj * fi / rowSums(Q_pj)
-  }
-    
-  Qk <- lapply(Ak, calc_ALK)
-  
-  Nk <- mapply(function(x, y) x * y, Qk, fik, SIMPLIFY = FALSE)
-  
-  Q_k <- t(t(Reduce('+', Nk)) / Reduce('+', lapply(Nk, colSums)))
-  Q_k[is.na(Q_k)] <- 0
-  
-  pjk <- do.pj(Nk)
-  pjz <- rep(1/ncol(Q_k), ncol(Q_k))
-  
-  Nz <- lapply(fiz, function(x) t(t(Q_k) * pjz) * sum(x))
-  
-  pjz <- do.pj(Nz)
-  
-  criterion <- threshold * 2
-  iter <- 0
-  
-  while(criterion > threshold & iter < maxiter) {
-    Nz.old <- Nz
-    Q_ <- sweep(Reduce('+', Nk) + Reduce('+', Nz), 2, Reduce('+', lapply(Nk, colSums)) + Reduce('+', lapply(Nz, colSums)), '/')
-    Q_[is.na(Q_)] <- 0
-    
-    Nk <- mapply(do.Nk, qij = Qk, aij = Ak, fi = fik, pj = pjk, SIMPLIFY = FALSE)
-    Nz <- mapply(do.Nz, fi = fiz, pj = pjz, SIMPLIFY = FALSE)
-    
-    pjk <- do.pj(Nk)
-    pjz <- do.pj(Nz)
-    
-    criterion <- max(mapply("-", Nz, Nz.old))
-    iter <- iter + 1
-  }
-  
-  lapply(Nz, function(x)
+  lapply(Nz, function(x) {
+    colnames(x) <- age_classes
+    rownames(x) <- length_classes
     new("ALKr",
         alk = calc_ALK(x),
         N = x,
@@ -130,6 +92,6 @@ hoenig <- function(Ak, fik, fiz, threshold = 1, maxiter = 2000,
           ConvergenceThreshold = threshold,
           Iterations = iter,
           Converged = iter < maxiter)
-    )
+    )}
   )
 }

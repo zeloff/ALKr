@@ -48,10 +48,8 @@ double optimGascuel(NumericVector params, NumericVector lj, NumericVector li,
   int iter = 0;
     
   while(sum(abs(pj_prev - pj)) > threshold && iter < maxiter) {
-    for (int i = 0; i < ni; ++i) {
-      for (int j = 0; j < nj; ++j) {
-        P(i, j) = invALK(i, j) * pj[j];
-      }
+    for (int j = 0; j < nj; ++j) {
+      P(_, j) = invALK(_, j) * pj[j];
     }
     
     for (int i = 0; i < ni; ++i) {
@@ -108,10 +106,8 @@ NumericMatrix finalGascuel(NumericVector params, NumericVector lj,
   int iter = 0;
   
   while(sum(abs(pj_prev - pj)) > threshold && iter < maxiter) {
-    for (int i = 0; i < ni; ++i) {
-      for (int j = 0; j < nj; ++j) {
-        P(i, j) = invALK(i, j) * pj[j];
-      }
+    for (int j = 0; j < nj; ++j) {
+        P(_, j) = invALK(_, j) * pj[j];
     }
     
     for (int i = 0; i < ni; ++i) {

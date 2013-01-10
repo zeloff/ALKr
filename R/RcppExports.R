@@ -9,3 +9,7 @@ finalGascuel <- function(params, lj, li, pi_, threshold, maxiter) {
     .Call('ALKr_finalGascuel', PACKAGE = 'ALKr', params, lj, li, pi_, threshold, maxiter)
 }
 
+hoenigC <- function(AAk, FFik, FFiz, threshold, maxiter) {
+    .Call('ALKr_hoenigC', PACKAGE = 'ALKr', AAk, FFik, FFiz, threshold, maxiter)
+}
+
