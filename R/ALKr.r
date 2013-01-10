@@ -34,9 +34,8 @@ setMethod("show",
   }
 )
 
-setMethod("summary",
-  signature(object = "ALKr"),
-  function(object, length_classes = as.numeric(rownames(object@alk))) {
+#' @export
+summary.ALKr <- function(object, length_classes = as.numeric(rownames(object@alk))) {
     
     nj <- colSums(object@N)
     i <- colSums(length_classes * object@N)
@@ -58,5 +57,4 @@ setMethod("summary",
     print(matrix(object@parameters, dimnames = list(names(object@parameters), "Value")))
     
     invisible(result)
-  }
-)
+}

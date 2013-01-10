@@ -125,6 +125,8 @@ inverse_ALK <- function(x, fi1, fi2,
   
   nij2 <- outer(fi2, colSums((fi2 * t(MASS::ginv(calc_invALK(x, fi1)))) / sum(fi2)))
   
+  colnames(nij2) <- age_classes
+  
   new("ALKr", alk = calc_ALK(nij2),
       N = nij2,
       method = "Classic Inverse ALK",
