@@ -31,7 +31,7 @@
 classic_ALK <- function(x, fi = rowSums(x), age_classes = colnames(x),
                        length_classes = rownames(x)) {
   
-  if (fi == rowSums(x)) {
+  if (identical(fi, rowSums(x))) {
     params <- list(Note = "N matrix assumes non-stratified sampling")
   } else {
     params <- list()
