@@ -122,8 +122,8 @@ inverse_ALK <- function(x, fi1, fi2,
   
   if (any(c(nrow(x) != length(fi1), length(fi1) != length(fi2))))
     stop("length of f1 and f2 must be equal to the number of rows of x")
-  
-  nij2 <- outer(fi2, colSums((fi2 * t(MASS::ginv(calc_invALK(x, fi1)))) / sum(fi2)))
+
+  nij2 <- t(MASS::ginv(calc_invALK(x, fi1))) * fi2
   
   colnames(nij2) <- age_classes
   
