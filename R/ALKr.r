@@ -30,31 +30,7 @@ setMethod("show",
   function(object) {
     print(object@alk)
     cat(paste("\nMethod:", object@method,"\n"))
-    print(matrix(object@parameters, dimnames = list(names(object@parameters), "Value")))
+    if (length(object@parameters) > 1)
+      print(matrix(object@parameters, dimnames = list(names(object@parameters), "Value")))
   }
 )
-
-#' @export
-summary.ALKr <- function(object, length_classes = as.numeric(rownames(object@alk))) {
-    
-    nj <- colSums(object@N)
-    i <- colSums(length_classes * object@N)
-    lj <- i / nj
-    
-    vlj <- colSums(object@N * length_classes^2) / (nj - 1) - 2 * lj * i / (nj - 1) + lj^2 * nj / (nj - 1)
-    vlj[vlj <= 0] <- NaN
-    
-    result <- list(pj = nj / sum(nj), mean_lj = lj, var_lj = vlj)
-    
-    cat("Proportion of age-class:")
-    print(result$pj)
-    cat("\nMean length at age:")
-    print(result$mean_lj)
-    cat("\nVariance of length at age:")
-    print(result$var_lj)
-    cat("\n")
-    cat(paste("\nMethod:", object@method,"\n"))
-    print(matrix(object@parameters, dimnames = list(names(object@parameters), "Value")))
-    
-    invisible(result)
-}

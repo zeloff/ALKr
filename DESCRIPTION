@@ -3,8 +3,8 @@ Type: Package
 Title: Generate Age-Length Keys for fish populations
 Description: More about what it does (maybe more than one line)
 URL: http://www.github.com/ALKr
-Version: 0.4.1
-Date: 2013-01-14
+Version: 0.5
+Date: 2013-01-30
 Author: Jose Francisco Loff, Alberto Murta, Laurence Kell
 Maintainer: Jose Francisco Loff <jfloff@phistat.com>
 Depends:
@@ -29,3 +29,5 @@ Collate:
     'hom.r'
     'RcppExports.R'
     'age_slicing.r'
+    'summary.ALKr.r'
+    'summary_ALKr.r'

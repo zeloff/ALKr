@@ -18,8 +18,8 @@
   \item{age_classes}{A vector with the name of each age
   class. Defaults to the column names of \code{x}.}
 
-  \item{length_classes}{A vector with the name of each age
-  class. Defaults to the row names of \code{x}.}
+  \item{length_classes}{A vector with the name of each
+  length class. Defaults to the row names of \code{x}.}
 }
 \value{
   An \code{ALKr} object, containing a \eqn{i \times j}

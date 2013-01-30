@@ -11,8 +11,8 @@
 #' sampled. Defaults to the number of samples per length class, which will
 #' @param age_classes A vector with the name of each age class. Defaults to the
 #' column names of \code{x}.
-#' @param length_classes A vector with the name of each age class. Defaults to
-#' the row names of \code{x}.
+#' @param length_classes A vector with the name of each length class. Defaults
+#' to the row names of \code{x}.
 #' 
 #' @return An \code{ALKr} object, containing a \eqn{i \times j} matrix with the
 #' probability of an individual of length \eqn{i} having age \eqn{j}, i.e.
