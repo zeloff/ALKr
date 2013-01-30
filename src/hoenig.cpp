@@ -52,8 +52,8 @@ List hoenigC(List AAk, List FFik, List FFiz, int threshold, int maxiter) {
   int nlk = AAk.size();
   int nlz = FFiz.size();
   
-  NumericMatrix NNk[nlk];
-  NumericMatrix QQk[nlk];
+  List NNk(nlk);
+  List QQk(nlk);
   NumericMatrix Q_(nr, nc);
   NumericMatrix sumNk(nr, nc);
   
@@ -77,14 +77,14 @@ List hoenigC(List AAk, List FFik, List FFiz, int threshold, int maxiter) {
     Q_(_, c) = sumNk(_, c) / csNk[c];
   }
   
-  NumericVector Pjk[nlk];
+  List Pjk(nlk);
   for (int l = 0; l < nlk; ++l) {
-    Pjk[l] = do_pj(NNk[l]);
+    Pjk[l] = do_pj(as<NumericMatrix>(NNk[l]));
   }
   
-  NumericMatrix Nz[nlz];
-  NumericMatrix Nz_old[nlz];
-  NumericVector Pjz[nlz];
+  List Nz(nlz);
+  List Nz_old(nlz);
+  List Pjz(nlz);
   double sumFiz;
   for (int l = 0; l < nlz; ++l) {
     Nz[l] = NumericMatrix(nr, nc);
@@ -92,11 +92,11 @@ List hoenigC(List AAk, List FFik, List FFiz, int threshold, int maxiter) {
     sumFiz = sum(as<NumericVector>(FFiz[l]));
     for (int r= 0; r < nr; ++r) {
       for (int c = 0; c < nc; ++c) {
-        Nz[l](r, c) = Q_(r, c) * (1.0/nc) * sumFiz;
-        Nz_old[l](r, c) = Nz[l](r, c);
+        as<NumericMatrix>(Nz[l])(r, c) = Q_(r, c) * (1.0/nc) * sumFiz;
+        as<NumericMatrix>(Nz_old[l])(r, c) = as<NumericMatrix>(Nz[l])(r, c);
       }
     }
-    Pjz[l] = do_pj(Nz[l]);
+    Pjz[l] = do_pj(as<NumericMatrix>(Nz[l]));
   }
   
   int iter = 0;
@@ -108,10 +108,10 @@ List hoenigC(List AAk, List FFik, List FFiz, int threshold, int maxiter) {
     
     for (int c = 0; c < nc; ++c) {
       for (int l = 0; l < nlk; ++l) {
-        N(_, c) = N(_, c) + NNk[l](_, c);
+        N(_, c) = N(_, c) + as<NumericMatrix>(NNk[l])(_, c);
       }
       for (int l = 0; l < nlz; ++l) {
-        N(_, c) = N(_, c) + Nz[l](_, c);
+        N(_, c) = N(_, c) + as<NumericMatrix>(Nz[l])(_, c);
       }
     }
    
@@ -122,20 +122,20 @@ List hoenigC(List AAk, List FFik, List FFiz, int threshold, int maxiter) {
       Q_(_, c) = N(_, c) / cSumN[c];
     }
     for (int l = 0; l < nlk; ++l) {
-      NNk[l] = do_Nk(QQk[l], Q_, as<NumericMatrix>(AAk[l]),
-                    as<NumericVector>(FFik[l]), Pjk[l]);
-      Pjk[l] = do_pj(NNk[l]);
+      NNk[l] = do_Nk(as<NumericMatrix>(QQk[l]), Q_, as<NumericMatrix>(AAk[l]),
+                    as<NumericVector>(FFik[l]), as<NumericVector>(Pjk[l]));
+      Pjk[l] = do_pj(as<NumericMatrix>(NNk[l]));
     }
     
     for (int l = 0; l < nlz; ++l) {
-      Nz[l] = do_Nz(Q_, as<NumericVector>(FFiz[l]), Pjz[l]);
-      Pjz[l] = do_pj(Nz[l]);
+			Nz[l] = do_Nz(Q_, as<NumericVector>(FFiz[l]), as<NumericVector>(Pjz[l]));
+      Pjz[l] = do_pj(as<NumericMatrix>(Nz[l]));
       
       criterion = 0;
       for (int c = 0; c < nc; ++c) {
-        double this_diff = max(abs(Nz[l](_, c) - Nz_old[l](_, c)));
+        double this_diff = max(abs(as<NumericMatrix>(Nz[l])(_, c) - as<NumericMatrix>(Nz_old[l])(_, c)));
         if (this_diff > criterion) criterion = this_diff;
-        Nz_old[l](_, c) = Nz[l](_, c);
+        as<NumericMatrix>(Nz_old[l])(_, c) = as<NumericMatrix>(Nz[l])(_, c);
       }
     }
     
@@ -144,8 +144,9 @@ List hoenigC(List AAk, List FFik, List FFiz, int threshold, int maxiter) {
   
   List result(nlz);
   for (int l = 0; l < nlz; ++l) {
-    result[l] = Nz[l];
+    result[l] = as<NumericMatrix>(Nz[l]);
   }
   
   return List::create(_["Nz"] = result, _["iter"] = iter);
 }
+
