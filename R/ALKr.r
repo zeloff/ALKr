@@ -30,7 +30,7 @@ setMethod("show",
   function(object) {
     print(object@alk)
     cat(paste("\nMethod:", object@method,"\n"))
-    if (length(object@parameters) > 1)
+    if (length(object@parameters) > 0)
       print(matrix(object@parameters, dimnames = list(names(object@parameters), "Value")))
   }
 )
