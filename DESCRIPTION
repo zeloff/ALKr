@@ -1,7 +1,8 @@
 Package: ALKr
 Type: Package
 Title: Generate Age-Length Keys for fish populations
-Description: More about what it does (maybe more than one line)
+Description: A collection of functions that implement several algorithms for
+    generating age-length keys for fish populations from incomplete data.
 URL: http://www.github.com/ALKr
 Version: 0.5
 Date: 2013-01-30
