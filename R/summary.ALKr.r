@@ -23,6 +23,7 @@
 #' summary(hhALK)
 #' 
 #' @method summary ALKr
+#' @export
 summary.ALKr <- function(object, length_classes = NULL, ...) {
   
   if (is.null(length_classes)) {

@@ -1,3 +1,4 @@
+S3method(summary,ALKr)
 export(age_slicing)
 export(calc_ALK)
 export(calc_invALK)
