@@ -2,7 +2,8 @@
 #' @export
 hoenig_heisey <- function(x, fi1, fi2, threshold = 0.0001, maxiter = 2000,
                          age_classes = colnames(x),
-                         length_classes = rownames(x)) {
+                          length_classes = rownames(x), name = "",
+                          description = "") {
   
   nij1 <- fi1 * calc_ALK(x)
   nij2 <- fi2 * calc_invALK(x, fi1)
@@ -28,6 +29,8 @@ hoenig_heisey <- function(x, fi1, fi2, threshold = 0.0001, maxiter = 2000,
       parameters = list(
         ConvergenceThreshold = threshold,
         Iterations = iter,
-        Converged = iter < maxiter)
+        Converged = iter < maxiter),
+      name = name,
+      description = description
   )
 }

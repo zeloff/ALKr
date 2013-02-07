@@ -66,6 +66,8 @@
 #' `details'.
 #' @param initial_values A vector with the initial values for \eqn{\alpha},
 #' \eqn{\beta} and \eqn{\gamma}: see `details'.
+#' @param name A string with the name of the ALK.
+#' @param description A string describing the ALK.
 #' 
 #' @return An \code{ALKr} object, containing a matrix with the probability of an
 #' individual of age \code{j} having length \code{i}, i.e. \eqn{P(i|j)}, the
@@ -118,7 +120,8 @@
 #' @export
 #' @aliases inverse_ALK kimura_chikuni hoenig_heisey gascuel
 inverse_ALK <- function(x, fi1, fi2,
-                    age_classes = colnames(x), length_classes = rownames(x)) {
+                        age_classes = colnames(x), length_classes = rownames(x),
+                        name = "", description = "") {
   
   if (any(c(nrow(x) != length(fi1), length(fi1) != length(fi2))))
     stop("length of f1 and f2 must be equal to the number of rows of x")
@@ -131,5 +134,7 @@ inverse_ALK <- function(x, fi1, fi2,
   new("ALKr", alk = calc_ALK(nij2),
       N = nij2,
       method = "Classic Inverse ALK",
-      parameters = list())
+      parameters = list(),
+      name = name,
+      description = description)
 }

@@ -4,7 +4,8 @@
 \usage{
   classic_ALK(x, fi = rowSums(x),
     age_classes = colnames(x),
-    length_classes = rownames(x))
+    length_classes = rownames(x), name = "",
+    description = "")
 }
 \arguments{
   \item{x}{A \eqn{i \times j} matrix with the count of
@@ -20,6 +21,10 @@
 
   \item{length_classes}{A vector with the name of each
   length class. Defaults to the row names of \code{x}.}
+
+  \item{name}{A string with the name of the ALK.}
+
+  \item{description}{A string describing the ALK.}
 }
 \value{
   An \code{ALKr} object, containing a \eqn{i \times j}

@@ -13,6 +13,8 @@
 #' column names of \code{x}.
 #' @param length_classes A vector with the name of each length class. Defaults
 #' to the row names of \code{x}.
+#' @param name A string with the name of the ALK.
+#' @param description A string describing the ALK.
 #' 
 #' @return An \code{ALKr} object, containing a \eqn{i \times j} matrix with the
 #' probability of an individual of length \eqn{i} having age \eqn{j}, i.e.
@@ -29,7 +31,8 @@
 #' 
 #' @export
 classic_ALK <- function(x, fi = rowSums(x), age_classes = colnames(x),
-                       length_classes = rownames(x)) {
+                        length_classes = rownames(x), name = "",
+                        description = "") {
   
   if (identical(fi, rowSums(x))) {
     params <- list(Note = "N matrix assumes non-stratified sampling")
@@ -41,6 +44,8 @@ classic_ALK <- function(x, fi = rowSums(x), age_classes = colnames(x),
       alk = calc_ALK(x),
       N = x * fi,
       method = "Classic ALK",
-      parameters = params
+      parameters = params,
+      name = name,
+      description = description
       )
 }

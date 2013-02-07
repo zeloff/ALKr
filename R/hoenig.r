@@ -41,6 +41,9 @@
 #' see `details'.
 #' @param maxiter The maximum number of iterations of the EM algorithm: see
 #' `details'.
+#' @param name A string with the name of the ALK.
+#' @param description A string describing the ALK.
+
 #' 
 #' @return A list of \code{ALKr} objects, one for each item in the \code{fiz}
 #' list, each containing a matrix with the probability of an individual of age
@@ -72,7 +75,8 @@
 #' @export
 hoenig <- function(Ak, fik, fiz, threshold = 1, maxiter = 2000,
                    age_classes = colnames(Ak[[1]]),
-                   length_classes = rownames(Ak[[1]])) {
+                   length_classes = rownames(Ak[[1]]),
+                   name = "", description = "") {
   
   fromC <- hoenigC(Ak, fik, fiz, threshold, maxiter)
   
@@ -89,7 +93,9 @@ hoenig <- function(Ak, fik, fiz, threshold = 1, maxiter = 2000,
         parameters = list(
           ConvergenceThreshold = threshold,
           Iterations = iter,
-          Converged = iter < maxiter)
+          Converged = iter < maxiter),
+        name = name,
+        description = description
     )}
   )
 }

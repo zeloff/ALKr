@@ -1,3 +1,8 @@
+ALKr 0.5.1
+==========
+
+* `ALKr` objects now have `name` and `description` slots
+
 ALKr 0.5
 ==========
 

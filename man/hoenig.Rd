@@ -4,7 +4,8 @@
 \usage{
   hoenig(Ak, fik, fiz, threshold = 1, maxiter = 2000,
     age_classes = colnames(Ak[[1]]),
-    length_classes = rownames(Ak[[1]]))
+    length_classes = rownames(Ak[[1]]), name = "",
+    description = "")
 }
 \arguments{
   \item{Ak}{A list of \code{k} equally dimensioned
@@ -33,6 +34,10 @@
 
   \item{maxiter}{The maximum number of iterations of the EM
   algorithm: see `details'.}
+
+  \item{name}{A string with the name of the ALK.}
+
+  \item{description}{A string describing the ALK.}
 }
 \value{
   A list of \code{ALKr} objects, one for each item in the

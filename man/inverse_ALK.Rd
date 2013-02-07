@@ -7,18 +7,22 @@
 \usage{
   gascuel(x, fi1, fi2, initial_values, threshold = 1e-04,
     maxiter = 2000, age_classes = colnames(x),
-    length_classes = rownames(x))
+    length_classes = rownames(x), name = "",
+    description = "")
 
   hoenig_heisey(x, fi1, fi2, threshold = 1e-04,
     maxiter = 2000, age_classes = colnames(x),
-    length_classes = rownames(x))
+    length_classes = rownames(x), name = "",
+    description = "")
 
   inverse_ALK(x, fi1, fi2, age_classes = colnames(x),
-    length_classes = rownames(x))
+    length_classes = rownames(x), name = "",
+    description = "")
 
   kimura_chikuni(x, fi1, fi2, threshold = 1e-04,
     maxiter = 2000, age_classes = colnames(x),
-    length_classes = rownames(x))
+    length_classes = rownames(x), name = "",
+    description = "")
 }
 \arguments{
   \item{x}{A matrix with \code{i} lines and \code{j}
@@ -48,6 +52,10 @@
   \item{initial_values}{A vector with the initial values
   for \eqn{\alpha}, \eqn{\beta} and \eqn{\gamma}: see
   `details'.}
+
+  \item{name}{A string with the name of the ALK.}
+
+  \item{description}{A string describing the ALK.}
 }
 \value{
   An \code{ALKr} object, containing a matrix with the
