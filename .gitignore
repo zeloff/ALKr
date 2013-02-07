@@ -3,3 +3,6 @@
 .RData
 src/*.so
 src/*.o
+..Rcheck
+.Rapp.history
+ALKr.Rproj
