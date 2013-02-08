@@ -25,9 +25,9 @@
     description = "")
 }
 \arguments{
-  \item{x}{A matrix with \code{i} lines and \code{j}
-  columns, where \code{x[i, j]} is the count of individuals
-  of length \code{i} and age \code{j}.}
+  \item{x}{A \eqn{i \times j} matrix with \code{i} lines
+  and \code{j} columns, where \code{x[i, j]} is the count
+  of individuals of length \code{i} and age \code{j}.}
 
   \item{fi1}{A vector of length \code{i} where \code{fi[i]}
   is the number of fish in the length-class \code{i} on the
@@ -58,11 +58,12 @@
   \item{description}{A string describing the ALK.}
 }
 \value{
-  An \code{ALKr} object, containing a matrix with the
-  probability of an individual of age \code{j} having
-  length \code{i}, i.e. \eqn{P(i|j)}, the vectors of age
-  and length classes, and information about the method used
-  to generate the key.
+  An \code{ALKr} object, containing a \eqn{i \times j}
+  matrix with the probability of an individual of length
+  \code{i} having age \code{j}, i.e. \eqn{P(j|i)}, a \eqn{i
+  \times j} matrix with the estimated number of individuals
+  of length \code{i} and age \code{j}, and information
+  about the method used to generate the key.
 }
 \description{
   Generation of Age-Length Keys (ALK) using incomplete

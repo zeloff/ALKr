@@ -1,3 +1,25 @@
+#' ALKr
+#'
+#' Every function used to calculate Age-Length Keys returns an \code{ALKr}
+#' object.
+#'
+#' \describe{
+#'   \item{alk}{A \eqn{i \times j} matrix with the probability of an individual
+#'     of length \eqn{i} having age \eqn{j}, i.e. \eqn{P(j|i)}}
+#'   \item{N}{A \eqn{i \times j} matrix with the estimated number of individuals
+#'     of length \eqn{i} and age \eqn{j}}
+#'   \item{method}{A string with the name of the algorithm used to calculate the
+#'     ALK}
+#'   \item{params}{A named list with any parameters needed by the algorithm}
+#'   \item{name}{A string with a user-defined name for the ALKr object}
+#'   \item{description}{A string with a user-defined description for the ALKr
+#'     object}
+#' }
+#'  
+#' @name ALKr-class
+#' @rdname ALKr-class
+#' @exportClass ALKr
+#' 
 setClass("ALKr",
   representation(
     alk = "matrix",
@@ -7,11 +29,7 @@ setClass("ALKr",
     name = "character",
     description = "character"),
   validity = function(object) {
-    if (nrow(object@alk) != length(object@length_classes))
-      return("Incorrect number of length classes")
-    if (ncol(object@alk) != length(object@age_classes))
-      return("Incorrect number of age classes")
-    if (!identical(dim(alk), dim(N)))
+    if (!identical(dim(object@alk), dim(object@N)))
       return("alk and N matrices have different dimensions")
     return(TRUE)
   }
@@ -25,6 +43,7 @@ setMethod("initialize", "ALKr",
     .Object@parameters <- parameters
     .Object@name <- name
     .Object@description <- description
+    validObject(.Object)
     .Object
   }
 )

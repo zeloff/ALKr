@@ -9,7 +9,7 @@
 }
 \arguments{
   \item{x}{A \eqn{i \times j} matrix with the count of
-  individuals of age \eqn{i} and length \eqn{j}.}
+  individuals of length \eqn{i} and age \eqn{j}.}
 
   \item{fi}{A vector of length \code{i} where \code{fi[i]}
   is the number of fish in the length-class \code{i} on the
@@ -29,9 +29,10 @@
 \value{
   An \code{ALKr} object, containing a \eqn{i \times j}
   matrix with the probability of an individual of length
-  \eqn{i} having age \eqn{j}, i.e. \eqn{P(i|j)}, the
-  vectors of age and length classes, and information about
-  the method used to generate the key.
+  \code{i} having age \code{j}, i.e. \eqn{P(j|i)}, a \eqn{i
+  \times j} matrix with the estimated number of individuals
+  of length \code{i} and age \code{j}, and information
+  about the method used to generate the key.
 }
 \description{
   \code{classicALK} returns an Age-Length Key calculated
