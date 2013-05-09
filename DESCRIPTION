@@ -4,8 +4,8 @@ Title: Generate Age-Length Keys for fish populations
 Description: A collection of functions that implement several algorithms for
     generating age-length keys for fish populations from incomplete data.
 URL: http://www.github.com/ALKr
-Version: 0.5.2
-Date: 2013-02-08
+Version: 0.5.3
+Date: 2013-05-07
 Author: Jose Francisco Loff, Alberto Murta, Laurence Kell
 Maintainer: Jose Francisco Loff <jfloff@phistat.com>
 Depends:
