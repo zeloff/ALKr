@@ -29,3 +29,4 @@ kimura_chikuni <- function(x, fi1, fi2, threshold = 0.0001, maxiter = 2000,
       description = description
   )
 }
+

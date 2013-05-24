@@ -50,3 +50,4 @@ classic_ALK <- function(x, fi = rowSums(x), age_classes = colnames(x),
       description = description
       )
 }
+

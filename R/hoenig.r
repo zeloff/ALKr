@@ -99,3 +99,4 @@ hoenig <- function(Ak, fik, fiz, threshold = 1, maxiter = 2000,
     )}
   )
 }
+

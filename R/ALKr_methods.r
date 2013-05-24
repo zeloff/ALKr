@@ -43,3 +43,4 @@ setReplaceMethod("description", signature = "ALKr",
                    object@description <- value
                    validObject(object)
                    return(object)})
+

@@ -59,3 +59,4 @@ setMethod("show",
       print(matrix(object@parameters, dimnames = list(names(object@parameters), "Value")))
   }
 )
+
