@@ -82,7 +82,9 @@
 \examples{
 data(hom)
 
-hoenig(Ak = hom$otoliths[1:10], fik = replicate(10, hom$F1992, simplify = FALSE), fiz = list(hom$F1993))
+hoenig(Ak = hom$otoliths[1:10],
+       fik = replicate(10, hom$F1992, simplify = FALSE),
+       fiz = list(hom$F1993))
 }
 \references{
   Dempster, A.P., Laird, N.M., Rubin, D.B. (1977). Maximum

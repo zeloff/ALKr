@@ -70,7 +70,9 @@
 #' @examples
 #' data(hom)
 #' 
-#' hoenig(Ak = hom$otoliths[1:10], fik = replicate(10, hom$F1992, simplify = FALSE), fiz = list(hom$F1993))
+#' hoenig(Ak = hom$otoliths[1:10],
+#'        fik = replicate(10, hom$F1992, simplify = FALSE),
+#'        fiz = list(hom$F1993))
 #'        
 #' @export
 hoenig <- function(Ak, fik, fiz, threshold = 1, maxiter = 2000,
