@@ -1,3 +1,8 @@
+ALKr 0.5.3.2
+============
+
+* Minor fix in compilation flags, for compatibility with CRAN
+
 ALKr 0.5.3.1
 ============
 
@@ -11,7 +16,7 @@ ALKr 0.5.3
 ALKr 0.5.2
 ==========
 
-* `ALKr` class now has acessors for all slots and setters for `name` and
+* `ALKr` class now has accessors for all slots and setters for `name` and
   `description`
 * `ALKr` class and methods are now documented
 
