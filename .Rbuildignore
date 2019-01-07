@@ -1,3 +1,6 @@
+^cran-comments\.md$
+^CRAN-RELEASE$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.git$
+^\..Rcheck$
